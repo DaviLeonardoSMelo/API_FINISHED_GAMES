@@ -5,13 +5,13 @@ import { Resume } from './resume';
 import { Score } from './score';
 
 export interface GameProps {
-    finishedId: string;
+    finishedId?: string;
     nameGame: string;
     finishedDate: Date;
     registerDate: Date;
     resume: Resume;
     score: Score;
-    gameplayTime?: number | null;
+    gameplayTime: number;
     hundredPercent: boolean;
     userId: string;
 }
@@ -19,11 +19,14 @@ export class Game {
     private _id: string;
     private props: GameProps;
     
-    constructor(props: Replace<GameProps, {registerDate?: Date}>,finishedId?: string,) {
+    constructor(props: Replace<GameProps, {gameplayTime?: number, registerDate?: Date, finishedDate?: Date}>,finishedId?: string,) {
         this._id = finishedId ?? randomUUID();
         this.props = { 
             ...props,
-            registerDate: props.registerDate ?? new Date()
+            gameplayTime: props.gameplayTime ?? 1,
+            registerDate: props.registerDate ?? new Date(),
+            finishedDate: props.finishedDate ?? new Date()
+
         }
     }
     public get finishedId() {
@@ -56,7 +59,7 @@ export class Game {
     public set score(score: Score){
         this.props.score = score
     }
-    public get gameplayTime(): number | null | undefined {
+    public get gameplayTime() {
         return this.props.gameplayTime
     }
     public set gameplayTime(gameplayTime: number){
