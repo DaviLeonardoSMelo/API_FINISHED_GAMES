@@ -13,7 +13,7 @@ export class Score {
     constructor(score: number) {
         const isScoreLenghtValid = this.validateScoreLenght(score);
         if (!isScoreLenghtValid) {
-            throw new Error('Score lenght error, minus 0 points or over 10 points.')
+            throw new Error('Score lenght error, less 0 points or over 10 points.')
         }
         this.score = score
     }

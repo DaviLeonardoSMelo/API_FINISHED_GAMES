@@ -3,7 +3,7 @@ import { Email } from './email';
 import { Password } from './password';
 import { User } from './user'; 
 
-describe('User Class', () => {
+describe('User ', () => {
   it('should create a valid user', () => {
     const validUser = new User({
             userName: new Name('John Doe'), 
@@ -38,7 +38,7 @@ describe('User Class', () => {
             userName: new Name(invalidName),
             email: new Email('user@example.com'), 
             password: new Password('Valid123'), 
-        })).toThrow('Name lenght error, minus 3 characters or over 50 characters.');
+        })).toThrow('Name length error, must be between 3 and 50 characters.');
   });
 
   it('should throw an error for an invalid name (more than 50 characters)', () => {
@@ -47,6 +47,6 @@ describe('User Class', () => {
             userName: new Name(invalidName),
             email: new Email('user@example.com'), 
             password: new Password('Valid123'), 
-    })).toThrow('Name lenght error, minus 3 characters or over 50 characters.');
+    })).toThrow('Name length error, must be between 3 and 50 characters.');
   });
 });

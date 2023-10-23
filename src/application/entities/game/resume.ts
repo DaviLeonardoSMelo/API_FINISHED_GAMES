@@ -13,7 +13,7 @@ export class Resume {
     constructor(resume: string) {
         const isResumeLenghtValid = this.validateResumeLenght(resume);
         if (!isResumeLenghtValid) {
-            throw new Error('Resume lenght error, minus 5 characters or over 2000 characters.')
+            throw new Error('Resume lenght error, must be between 5 and 2000 characters.')
         }
         this.resume = resume
     }

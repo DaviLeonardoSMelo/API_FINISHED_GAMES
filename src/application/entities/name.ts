@@ -12,7 +12,7 @@ export class Name {
     constructor(name: string) {
         const isNameLenghtValid = this.validateNameLenght(name);
         if (!isNameLenghtValid) {
-            throw new Error('Name lenght error, minus 3 characters or over 50 characters.')
+            throw new Error('Name length error, must be between 3 and 50 characters.')
         }
         this.name = name
     }
