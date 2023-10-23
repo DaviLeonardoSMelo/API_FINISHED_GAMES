@@ -18,7 +18,6 @@ export class Password {
     }
 
     private validatePasswordComplexity(password: string): void {
-        // Verifique a complexidade da senha, por exemplo, exigindo pelo menos uma letra maiúscula, uma letra minúscula e um número.
         const hasUppercase = /[A-Z]/.test(password);
         const hasLowercase = /[a-z]/.test(password);
         const hasNumber = /\d/.test(password);
