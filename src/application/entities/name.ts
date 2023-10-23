@@ -5,14 +5,14 @@ export class Name {
         return this.name
     }
 
-    private validateResumeLenght(name: string): boolean {
+    private validateNameLenght(name: string): boolean {
         return name.length >= 5 && name.length <= 50
     }
 
     constructor(name: string) {
-        const isResumeLenghtValid = this.validateResumeLenght(name);
-        if (!isResumeLenghtValid) {
-            throw new Error('Lenght lenght error, minus 5 characters or over 50 characters.')
+        const isNameLenghtValid = this.validateNameLenght(name);
+        if (!isNameLenghtValid) {
+            throw new Error('Name lenght error, minus 5 characters or over 50 characters.')
         }
         this.name = name
     }
