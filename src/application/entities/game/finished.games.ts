@@ -15,7 +15,7 @@ export interface GameProps {
     hundredPercent: boolean;
     userId: string;
 }
-export class Game {
+export class GameFinished {
     private _id: string;
     private props: GameProps;
     

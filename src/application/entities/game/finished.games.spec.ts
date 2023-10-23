@@ -1,10 +1,10 @@
-import { stringify } from "querystring";
-import { Game } from "./finished.games";
+import { GameFinished } from "./finished.games";
 import { Resume } from "./resume";
 import { Score } from "./score";
+
 describe('Finished Game ', () => {
     it('should be able to register a finished game', () => {
-    const game = new Game({
+    const game = new GameFinished({
         nameGame: 'Grand Theft Auto',
         finishedDate: new Date(2023, 10, 13),
         registerDate: new Date(2023, 10, 13),
