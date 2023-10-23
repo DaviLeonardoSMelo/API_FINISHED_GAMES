@@ -3,7 +3,7 @@ import { Replace } from "../../../helpers/Replace";
 import { Name } from '../name';
 
 export interface GameProps {
-    idGame: string;
+    idGame?: string;
     creator: string;
     nameGame: Name;
     registerGameDate: Date;
