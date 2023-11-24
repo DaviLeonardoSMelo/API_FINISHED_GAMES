@@ -1,3 +1,6 @@
+import { PasswordComplexityNotValid } from "@application/use-cases/errors/user-errors/password-complexity-not-valid";
+import { PasswordLenghtNotValid } from "@application/use-cases/errors/user-errors/password-length-not-valid";
+
 export class Password {
     private readonly password: string;
 
@@ -13,7 +16,7 @@ export class Password {
 
     private validatePasswordLength(password: string): void {
         if (password.length < 8 || password.length > 100) {
-            throw new Error('Password length error, must be between 8 and 100 characters.');
+            throw new PasswordLenghtNotValid();
         }
     }
 
@@ -23,7 +26,7 @@ export class Password {
         const hasNumber = /\d/.test(password);
 
         if (!(hasUppercase && hasLowercase && hasNumber)) {
-            throw new Error('Password must contain at least one uppercase letter, one lowercase letter, and one number.');
+            throw new PasswordComplexityNotValid();
         }
     }
 }

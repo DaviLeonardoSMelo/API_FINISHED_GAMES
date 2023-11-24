@@ -3,10 +3,11 @@ import { randomUUID }  from 'node:crypto';
 import { Replace } from "../../../helpers/Replace";
 import { Resume } from './resume';
 import { Score } from './score';
+import { Name } from '../name';
 
 export interface GameProps {
     finishedId?: string;
-    nameGame: string;
+    nameGame: Name;
     finishedDate: Date;
     registerDate: Date;
     resume: Resume;
@@ -32,10 +33,10 @@ export class GameFinished {
     public get finishedId() {
         return this._id;
     }
-    public get nameGame() {
+    public get nameGame(): Name {
         return this.props.nameGame
     }
-    public set nameGame(nameGame: string){
+    public set nameGame(nameGame: Name){
         this.props.nameGame = nameGame
     }
     public get finishedDate() {

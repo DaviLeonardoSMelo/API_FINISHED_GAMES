@@ -1,3 +1,5 @@
+import { ScoreLengthNotValid } from "@application/use-cases/errors/game-erros/score-length-not-valid";
+
 /* eslint-disable prettier/prettier */
 export class Score {
     private readonly score: number;
@@ -13,7 +15,7 @@ export class Score {
     constructor(score: number) {
         const isScoreLenghtValid = this.validateScoreLenght(score);
         if (!isScoreLenghtValid) {
-            throw new Error('Score lenght error, less 0 points or over 10 points.')
+            throw new ScoreLengthNotValid()
         }
         this.score = score
     }

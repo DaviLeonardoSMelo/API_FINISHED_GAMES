@@ -1,3 +1,6 @@
+import { EmailFormatNotValid } from "@application/use-cases/errors/user-errors/email-invalid-format";
+import { EmailLenghtNotValid } from "@application/use-cases/errors/user-errors/email-length-not-valid";
+
 export class Email {
     private readonly email: string;
 
@@ -13,14 +16,14 @@ export class Email {
 
     private validateEmailLength(email: string): void {
         if (email.length < 10 || email.length > 500) {
-            throw new Error('Email length error, must be between 10 and 500 characters.');
+            throw new EmailLenghtNotValid();
         }
     }
 
     private validateEmailFormat(email: string): void {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailRegex.test(email)) {
-            throw new Error('Invalid email format.');
+            throw new EmailFormatNotValid();
         }
     }
 }

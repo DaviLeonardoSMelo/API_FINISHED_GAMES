@@ -1,4 +1,6 @@
+import { PasswordLenghtNotValid } from '@application/use-cases/errors/user-errors/password-length-not-valid';
 import { Password } from './Password';
+import { PasswordComplexityNotValid } from '@application/use-cases/errors/user-errors/password-complexity-not-valid';
 
 describe('Password', () => {
     it('should create a valid password', () => {
@@ -8,11 +10,11 @@ describe('Password', () => {
   
     it('should throw an error for a short password', () => {
       const shortPassword = 'Short';
-      expect(() => new Password(shortPassword)).toThrow('Password length error, must be between 8 and 100 characters.');
+      expect(() => new Password(shortPassword)).toThrow(PasswordLenghtNotValid);
     });
   
     it('should throw an error for a password without uppercase letter', () => {
       const password = 'invalidpassword1';
-      expect(() => new Password(password)).toThrow('Password must contain at least one uppercase letter, one lowercase letter, and one number.');
+      expect(() => new Password(password)).toThrow(PasswordComplexityNotValid);
     });
   });

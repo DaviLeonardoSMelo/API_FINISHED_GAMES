@@ -1,3 +1,5 @@
+import { NameLenghtNotValid } from "@application/use-cases/errors/user-errors/name-user-length-not-valid";
+
 export class Name {
     private readonly name: string;
 
@@ -12,7 +14,7 @@ export class Name {
     constructor(name: string) {
         const isNameLenghtValid = this.validateNameLenght(name);
         if (!isNameLenghtValid) {
-            throw new Error('Name length error, must be between 3 and 50 characters.')
+            throw new NameLenghtNotValid()
         }
         this.name = name
     }

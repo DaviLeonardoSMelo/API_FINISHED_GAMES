@@ -1,3 +1,5 @@
+import { ResumeLengthNotValid } from "@application/use-cases/errors/game-erros/resume-length-not-valid";
+
 /* eslint-disable prettier/prettier */
 export class Resume {
     private readonly resume: string;
@@ -13,7 +15,7 @@ export class Resume {
     constructor(resume: string) {
         const isResumeLenghtValid = this.validateResumeLenght(resume);
         if (!isResumeLenghtValid) {
-            throw new Error('Resume lenght error, must be between 5 and 2000 characters.')
+            throw new ResumeLengthNotValid()
         }
         this.resume = resume
     }
