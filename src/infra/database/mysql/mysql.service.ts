@@ -34,6 +34,4 @@ export class DatabaseService {
       await this.connection.end();
     }
   }
-
-  // Adicione outros métodos conforme necessário...
 }

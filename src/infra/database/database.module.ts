@@ -6,4 +6,4 @@ import { DatabaseService } from './mysql/mysql.service';
   providers: [MysqlUsersRepository, DatabaseService],
   exports: [MysqlUsersRepository],
 })
-export class MysqlModule {}
+export class DatabaseModule {}
