@@ -8,10 +8,10 @@ import { MysqlUserMapper } from '../mappers/mysql-users-mapper';
 export class MysqlUsersRepository {
   constructor(private readonly dbService: DatabaseService) {}
 
-  async getAllUsers(userId: string): Promise<User | null> {
+  async getAllUsers(userId: string, query: string): Promise<User | null> {
     const connection = await this.dbService.getConnection();
     
-    const [result] = await connection.query<RowDataPacket[]>('SELECT * FROM users WHERE userId = ?', userId);
+    const [result] = await connection.query<RowDataPacket[]>(query, userId);
 
     if (result.length === 0) {
       return null; 
